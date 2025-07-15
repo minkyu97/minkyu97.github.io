@@ -198,6 +198,12 @@
     }
     
     /* Education */
+    .education-item-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
     .education-item {
       background: #f8f9fa;
       padding: 1.2rem;
@@ -298,7 +304,7 @@
   <div class="container">
     <header class="header">
       <h1>Min-kyu Lee</h1>
-      <p class="tagline">Machine Learning Engineer | Incoming MSCS Student at NYU</p>
+      <p class="tagline">Software Development Engineer | Data Engineer | MSCS Student at NYU</p>
       <div class="contact">
         <div class="contact-item">
           <span>📧</span>
@@ -322,7 +328,29 @@
     <main class="content">
       <section class="section">
         <h2>Professional Summary</h2>
-        <p>Machine Learning Engineer with 2+ years of experience in building scalable ML infrastructure and data pipelines at Kakao. Specializing in real-time systems, distributed computing, and MLOps. Transitioning to advanced ML research with strong foundations in Python, deep learning frameworks, and production-grade system design.</p>
+        <p>
+          Software Engineer and Data Engineer with 2+ years of experience 
+          in building scalable distributed backend systems and data pipelines at Kakao. 
+          Specializing in real-time systems, distributed computing, and ETL pipeline. 
+          Transitioning to advanced ML Engineer with strong foundations in Python, 
+          deep learning frameworks, and production-grade system design.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Education</h2>
+        <div class="education-item-list">
+          <div class="education-item">
+            <div class="degree">Bachelor of Science</div>
+            <div class="university">Seoul National University</div>
+            <div class="graduation-date">Graduated: February 2023</div>
+          </div>
+          <div class="education-item">
+            <div class="degree">Master of Science in Computer Science</div>
+            <div class="university">New York University Courant</div>
+            <div class="graduation-date">Expected: March 2027</div>
+          </div>
+        </div>
       </section>
 
       <section class="section">
@@ -332,23 +360,21 @@
           <h3>Kakao Corp.</h3>
           
           <div class="job-header">
-            <span class="job-title">Backend Developer - ML Infrastructure</span>
-            <span class="job-date">Feb 2023 – Jun 2025</span>
+            <span class="job-title">Software Development Engineer - Ad Server</span>
+            <span class="job-date">Feb 2023 - Jun 2025</span>
           </div>
           <ul class="experience-list">
-            <li>Architected and optimized <span class="highlight">real-time ML serving infrastructure</span> for ad delivery systems using RTB protocols, achieving <strong>&lt;50ms latency</strong> for model inference under 100K+ QPS</li>
-            <li>Led Kubernetes migration for ML model deployment pipeline, reducing deployment time by <strong>70%</strong> and enabling A/B testing for ML experiments</li>
-            <li>Implemented distributed logging and monitoring for ML pipelines using ELK stack and Prometheus, tracking model performance metrics and data drift</li>
-            <li>Collaborated with data scientists to productionize recommendation models, building feature stores and inference APIs</li>
+            <li>Architected and optimized Ad-Exchange server for ad delivery systems using Real-Time Bidding protocols.</li>
+            <li>Migrate Kubernetes migration for ML model deployment pipeline, reducing deployment time by <strong>70%</strong></li>
+            <li>Implemented distributed logging and monitoring systems using Senty, ELK stack and Prometheus</li>
           </ul>
 
           <div class="job-header" style="margin-top: 1.5rem;">
-            <span class="job-title">Data Engineer - ML Platform</span>
-            <span class="job-date">Jun 2022 – Aug 2022</span>
+            <span class="job-title">Data Engineer - Big Data & ML Platform</span>
+            <span class="job-date">Jun 2022 - Aug 2022</span>
           </div>
           <ul class="experience-list">
-            <li>Developed <strong>BI-Spark</strong>, a distributed ETL pipeline processing <span class="highlight">10B+ events daily</span> for ML feature engineering using Apache Spark and Airflow</li>
-            <li>Built reusable data preprocessing modules for ML training pipelines, reducing feature engineering time by <strong>60%</strong></li>
+            <li>Developed <strong>BI-Spark</strong>, a distributed ETL pipeline processing <span class="highlight">10B+ events daily</span> for ML feature engineering using Apache Spark and Airflow reducing ETL processing time by <strong>50%</strong></li>
             <li>Created automated data quality validation framework for ML datasets, catching data anomalies before model training</li>
           </ul>
         </div>
@@ -356,8 +382,8 @@
         <div>
           <h3>KICT (Korea Institute of Civil Engineering & Building Technology)</h3>
           <div class="job-header">
-            <span class="job-title">Research Intern - Data Science</span>
-            <span class="job-date">Aug 2021</span>
+            <span class="job-title">Research Intern</span>
+            <span class="job-date">Jul 2021</span>
           </div>
           <ul class="experience-list">
             <li>Preprocessed and analyzed <span class="highlight">multi-modal sensor data</span> (IoT, environmental) for sustainability research using Python, Pandas, and scikit-learn</li>
@@ -370,8 +396,7 @@
         <h2>Projects & Research</h2>
         <ul class="project-list">
           <li><strong>Large-Scale Transit Pattern Analysis</strong>: Applied unsupervised learning (k-means, DBSCAN) on <span class="highlight">50M+ transport records</span> to identify inefficient transfer patterns. Used PCA for dimensionality reduction and developed ranking algorithm for station optimization. <em>(Advisor: Prof. Dong-Kyu Kim)</em></li>
-          <li><strong>Automated Code Grading System with ML</strong>: Built scalable FastAPI backend for automated code evaluation with plans for ML-based scoring. Implemented containerized execution environment handling 1000+ concurrent submissions</li>
-          <li><strong>Real-time Anomaly Detection Pipeline</strong>: Designed streaming anomaly detection system using Kafka and Spark Streaming for system metrics, achieving 99.5% uptime in production</li>
+          <li><strong>Automated Code Grading System with ML</strong>: Built scalable Rust backend for automated and safe code evaluationg. Implemented containerized execution environment without overhead using CGroup and Namespace.</li>
         </ul>
       </section>
 
@@ -405,7 +430,7 @@
           <div class="skill-category">
             <h4>Big Data & Infrastructure</h4>
             <div class="skill-tags">
-              <span class="skill-tag">Apache Spark</span>
+              <span class="skill-tag">Spark</span>
               <span class="skill-tag">Kafka</span>
               <span class="skill-tag">Kubernetes</span>
               <span class="skill-tag">Docker</span>
@@ -417,23 +442,14 @@
           <div class="skill-category">
             <h4>Frameworks & Tools</h4>
             <div class="skill-tags">
-              <span class="skill-tag">FastAPI</span>
+              <span class="skill-tag">Play2</span>
               <span class="skill-tag">Spring</span>
-              <span class="skill-tag">Git</span>
+              <span class="skill-tag">FastAPI</span>
               <span class="skill-tag">ArgoCD</span>
-              <span class="skill-tag">Jupyter</span>
               <span class="skill-tag">Ansible</span>
+              <span class="skill-tag">Git</span>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Education</h2>
-        <div class="education-item">
-          <div class="degree">Bachelor of Science in Civil & Environmental Engineering</div>
-          <div class="university">Seoul National University</div>
-          <div class="graduation-date">Graduated: February 2023</div>
         </div>
       </section>
 
@@ -441,7 +457,7 @@
         <h2>Additional Information</h2>
         <ul class="project-list">
           <li><strong>Languages:</strong> Korean (Native), English (Professional)</li>
-          <li><strong>Interests:</strong> Deep Learning, NLP, Computer Vision, MLOps, Distributed Systems</li>
+          <li><strong>Interests:</strong> ML System, Deep Learning, NLP, Computer Vision, MLOps, Distributed Systems</li>
           <li><strong>Upcoming:</strong> Starting MSCS at NYU (Fall 2025) with focus on Machine Learning</li>
         </ul>
       </section>
