@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Min-kyu Lee | Machine Learning Engineer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background-color: #f5f7fa;
+    }
+    
+    .container {
+      max-width: 850px;
+      margin: 2rem auto;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    /* Header Section */
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 3rem 3rem 2.5rem;
+      position: relative;
+    }
+    
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+    
+    .tagline {
+      font-size: 1.2rem;
+      font-weight: 400;
+      opacity: 0.95;
+      margin-bottom: 1rem;
+    }
+    
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .contact a {
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    
+    .contact a:hover {
+      border-bottom-color: white;
+    }
+    
+    /* Main Content */
+    .content {
+      padding: 2.5rem 3rem;
+    }
+    
+    .section {
+      margin-bottom: 2.5rem;
+    }
+    
+    .section:last-child {
+      margin-bottom: 0;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      color: #667eea;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    h2::before {
+      content: '';
+      width: 4px;
+      height: 24px;
+      background: #667eea;
+      border-radius: 2px;
+    }
+    
+    h3 {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+    
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+    
+    .job-title {
+      font-weight: 600;
+      color: #34495e;
+    }
+    
+    .job-date {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+    
+    /* Lists */
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .experience-list li,
+    .project-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: #4a5568;
+    }
+    
+    .experience-list li::before,
+    .project-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+    }
+    
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .skill-category {
+      background: #f8f9fa;
+      padding: 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid #667eea;
+    }
+    
+    .skill-category h4 {
+      font-size: 1rem;
+      color: #667eea;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .skill-tag {
+      background: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #4a5568;
+      border: 1px solid #e2e8f0;
+    }
+    
+    /* Education */
+    .education-item {
+      background: #f8f9fa;
+      padding: 1.2rem;
+      border-radius: 6px;
+      border-left: 3px solid #667eea;
+    }
+    
+    .degree {
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 0.2rem;
+    }
+    
+    .university {
+      color: #4a5568;
+      margin-bottom: 0.2rem;
+    }
+    
+    .graduation-date {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+    
+    /* Highlights */
+    .highlight {
+      background: #f3f4ff;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        margin: 0;
+        border-radius: 0;
+      }
+      
+      .header,
+      .content {
+        padding: 2rem 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .contact {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      
+      .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media print {
+      body {
+        background: white;
+      }
+      
+      .container {
+        box-shadow: none;
+        margin: 0;
+      }
+      
+      .header {
+        background: none;
+        color: #2c3e50;
+        padding: 1.5rem 0;
+      }
+      
+      .header::after {
+        display: none;
+      }
+      
+      h1, h2 {
+        color: #2c3e50;
+      }
+      
+      .contact a {
+        color: #2c3e50;
+      }
+      
+      .skill-category {
+        border-left-color: #2c3e50;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Min-kyu Lee</h1>
+      <p class="tagline">Machine Learning Engineer | Incoming MSCS Student at NYU</p>
+      <div class="contact">
+        <div class="contact-item">
+          <span>📧</span>
+          <a href="mailto:ml10160@nyu.edu">ml10160@nyu.edu</a>
+        </div>
+        <div class="contact-item">
+          <span>📞</span>
+          <span>+82 10-8964-2457</span>
+        </div>
+        <div class="contact-item">
+          <img src="github-mark.svg" alt="GitHub" style="width: 16px; height: 16px; vertical-align: middle; filter: brightness(0) invert(1);">
+          <a href="https://github.com/minkyu97" target="_blank">github.com/minkyu97</a>
+        </div>
+        <div class="contact-item">
+          <span>📍</span>
+          <span>Seoul, South Korea</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="section">
+        <h2>Professional Summary</h2>
+        <p>Machine Learning Engineer with 2+ years of experience in building scalable ML infrastructure and data pipelines at Kakao. Specializing in real-time systems, distributed computing, and MLOps. Transitioning to advanced ML research with strong foundations in Python, deep learning frameworks, and production-grade system design.</p>
+      </section>
+
+      <section class="section">
+        <h2>Experience</h2>
+        
+        <div style="margin-bottom: 2rem;">
+          <h3>Kakao Corp.</h3>
+          
+          <div class="job-header">
+            <span class="job-title">Backend Developer - ML Infrastructure</span>
+            <span class="job-date">Feb 2023 – Jun 2025</span>
+          </div>
+          <ul class="experience-list">
+            <li>Architected and optimized <span class="highlight">real-time ML serving infrastructure</span> for ad delivery systems using RTB protocols, achieving <strong>&lt;50ms latency</strong> for model inference under 100K+ QPS</li>
+            <li>Led Kubernetes migration for ML model deployment pipeline, reducing deployment time by <strong>70%</strong> and enabling A/B testing for ML experiments</li>
+            <li>Implemented distributed logging and monitoring for ML pipelines using ELK stack and Prometheus, tracking model performance metrics and data drift</li>
+            <li>Collaborated with data scientists to productionize recommendation models, building feature stores and inference APIs</li>
+          </ul>
+
+          <div class="job-header" style="margin-top: 1.5rem;">
+            <span class="job-title">Data Engineer - ML Platform</span>
+            <span class="job-date">Jun 2022 – Aug 2022</span>
+          </div>
+          <ul class="experience-list">
+            <li>Developed <strong>BI-Spark</strong>, a distributed ETL pipeline processing <span class="highlight">10B+ events daily</span> for ML feature engineering using Apache Spark and Airflow</li>
+            <li>Built reusable data preprocessing modules for ML training pipelines, reducing feature engineering time by <strong>60%</strong></li>
+            <li>Created automated data quality validation framework for ML datasets, catching data anomalies before model training</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>KICT (Korea Institute of Civil Engineering & Building Technology)</h3>
+          <div class="job-header">
+            <span class="job-title">Research Intern - Data Science</span>
+            <span class="job-date">Aug 2021</span>
+          </div>
+          <ul class="experience-list">
+            <li>Preprocessed and analyzed <span class="highlight">multi-modal sensor data</span> (IoT, environmental) for sustainability research using Python, Pandas, and scikit-learn</li>
+            <li>Developed time-series visualization dashboards for pattern recognition in environmental data</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Projects & Research</h2>
+        <ul class="project-list">
+          <li><strong>Large-Scale Transit Pattern Analysis</strong>: Applied unsupervised learning (k-means, DBSCAN) on <span class="highlight">50M+ transport records</span> to identify inefficient transfer patterns. Used PCA for dimensionality reduction and developed ranking algorithm for station optimization. <em>(Advisor: Prof. Dong-Kyu Kim)</em></li>
+          <li><strong>Automated Code Grading System with ML</strong>: Built scalable FastAPI backend for automated code evaluation with plans for ML-based scoring. Implemented containerized execution environment handling 1000+ concurrent submissions</li>
+          <li><strong>Real-time Anomaly Detection Pipeline</strong>: Designed streaming anomaly detection system using Kafka and Spark Streaming for system metrics, achieving 99.5% uptime in production</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Machine Learning & AI</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">PyTorch</span>
+              <span class="skill-tag">scikit-learn</span>
+              <span class="skill-tag">TensorFlow</span>
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">MLflow</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>Programming Languages</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Scala</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Rust</span>
+              <span class="skill-tag">C++</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>Big Data & Infrastructure</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Apache Spark</span>
+              <span class="skill-tag">Kafka</span>
+              <span class="skill-tag">Kubernetes</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Airflow</span>
+              <span class="skill-tag">Jenkins</span>
+            </div>
+          </div>
+          
+          <div class="skill-category">
+            <h4>Frameworks & Tools</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">FastAPI</span>
+              <span class="skill-tag">Spring</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">ArgoCD</span>
+              <span class="skill-tag">Jupyter</span>
+              <span class="skill-tag">Ansible</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Education</h2>
+        <div class="education-item">
+          <div class="degree">Bachelor of Science in Civil & Environmental Engineering</div>
+          <div class="university">Seoul National University</div>
+          <div class="graduation-date">Graduated: February 2023</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Additional Information</h2>
+        <ul class="project-list">
+          <li><strong>Languages:</strong> Korean (Native), English (Professional)</li>
+          <li><strong>Interests:</strong> Deep Learning, NLP, Computer Vision, MLOps, Distributed Systems</li>
+          <li><strong>Upcoming:</strong> Starting MSCS at NYU (Fall 2025) with focus on Machine Learning</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
